@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public enum MovementType
@@ -81,6 +82,23 @@ public class Player : MonoBehaviour
     private void LevelSelectMovement()
     {
         dir = playerInput.TopDown.Move.ReadValue<Vector2>();
+
+        //for the animations
+        if(Mathf.RoundToInt(dir.x) == 0)
+        {
+            GetComponent<Animator>().SetBool("moving", false);
+        }
+        else if(Mathf.RoundToInt(dir.x) > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<Animator>().SetBool("moving", true);
+        }
+        else 
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<Animator>().SetBool("moving", true);
+        }
+
         rb2D.position = new Vector2(rb2D.position.x + (dir.x * Time.deltaTime * levelSpeed), rb2D.position.y);
     }
 }
