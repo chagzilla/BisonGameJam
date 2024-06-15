@@ -8,19 +8,22 @@ public class LevelselectionManager : MonoBehaviour
     public GameObject pause;
     public GameObject transitionstart;
     public GameObject transitionend;
+    public GameObject[] LevelsS;
+    private bool left;
 
     private void Start()
     {
         GameObject t = Instantiate(transitionend);
         Destroy(t, 2.5f);
         pause.SetActive(false);
-        Time.timeScale = 1; 
+        Time.timeScale = 1;
+        left = true;
     }
     public void Update()
     {
         //to let players pause the game
 
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))&& left == true)
         {
             if(pause.activeSelf)
             {
@@ -37,6 +40,11 @@ public class LevelselectionManager : MonoBehaviour
 
     public void returnmainmenu()
     {
+        left = false;
+        foreach (GameObject t in LevelsS)
+        {
+            Destroy(t);
+        }
         Time.timeScale = 1;
         StartCoroutine(LoadMainmenu());
     }

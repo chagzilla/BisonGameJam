@@ -28,6 +28,9 @@ public class Levels : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         insidecollider = false;
-        Icon.SetActive(false);
+        if (Icon != null)
+        {
+            Icon.SetActive(false);
+        }
     }
 }
