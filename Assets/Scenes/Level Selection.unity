@@ -662,6 +662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 1784713219}
+  transitionstart: {fileID: 6654012400158991352, guid: 8f1d257826b166a4c927fa5c32f7ab07, type: 3}
+  transitionend: {fileID: 1124752502276728293, guid: 346e8ec058072714794f4c80abc8c652, type: 3}
 --- !u!1001 &144246779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2125,8 +2127,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.13439989, y: 1.87795, z: 0}
-    m_Extent: {x: 4.4871, y: 4.2044497, z: 0}
+    m_Center: {x: -0.13139987, y: 1.8825, z: 0}
+    m_Extent: {x: 4.4865, y: 4.2095, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

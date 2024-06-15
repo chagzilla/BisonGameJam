@@ -993,6 +993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504f0c1b3a60ef74caf8e7ebc3416756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionend: {fileID: 1124752502276728293, guid: 346e8ec058072714794f4c80abc8c652, type: 3}
+  transitionstart: {fileID: 6654012400158991352, guid: 8f1d257826b166a4c927fa5c32f7ab07, type: 3}
 --- !u!1 &721596535
 GameObject:
   m_ObjectHideFlags: 0

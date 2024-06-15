@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class LevelselectionManager : MonoBehaviour
 {
     public GameObject pause;
+    public GameObject transitionstart;
+    public GameObject transitionend;
 
     private void Start()
     {
+        GameObject t = Instantiate(transitionend);
+        Destroy(t, 2.5f);
         pause.SetActive(false);
         Time.timeScale = 1; 
     }
@@ -18,7 +22,6 @@ public class LevelselectionManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
         {
-            print("jo0");
             if(pause.activeSelf)
             {
                 pause.SetActive(false);
@@ -40,7 +43,8 @@ public class LevelselectionManager : MonoBehaviour
 
     public IEnumerator LoadMainmenu()
     {
-
+        GameObject t = Instantiate(transitionstart);
+        Destroy(t, 2.5f);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Main Menu");
     }
