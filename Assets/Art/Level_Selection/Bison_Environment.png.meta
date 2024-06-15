@@ -1060,7 +1060,7 @@ TextureImporter:
         serializedVersion: 2
         x: 733
         y: 152
-        width: 76
+        width: 32
         height: 5
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -1525,7 +1525,7 @@ TextureImporter:
         width: 37
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1533,6 +1533,27 @@ TextureImporter:
       bones: []
       spriteID: 489b25dfe0c5d344b931fde20a5608fc
       internalID: 389070581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bison_Environment_68
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 152
+        width: 35
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a8c34716af2d646b69d58c21932491
+      internalID: -773629730
       vertices: []
       indices: 
       edges: []
@@ -1613,6 +1634,7 @@ TextureImporter:
       Bison_Environment_65: -1430750460
       Bison_Environment_66: -1970226872
       Bison_Environment_67: 389070581
+      Bison_Environment_68: -773629730
       Bison_Environment_7: 1515274034
       Bison_Environment_8: 1433616380
       Bison_Environment_9: 690978488
