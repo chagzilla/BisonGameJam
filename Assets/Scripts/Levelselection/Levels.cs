@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Levels : MonoBehaviour
 {
     public GameObject Icon;
     private bool insidecollider;
+    public string scenename;
     void Start()
     {
         Icon.SetActive(false);
@@ -16,7 +18,10 @@ public class Levels : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))&&insidecollider)
         {
-            //Start a level
+            if (scenename != "")
+            {
+                SceneManager.LoadScene(scenename);
+            }
         }
     }
 
@@ -33,4 +38,5 @@ public class Levels : MonoBehaviour
             Icon.SetActive(false);
         }
     }
+
 }
