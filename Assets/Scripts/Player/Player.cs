@@ -129,4 +129,10 @@ public class Player : MonoBehaviour
 
         rb2D.position = new Vector2(rb2D.position.x + (dir.x * Time.deltaTime * levelSpeed), rb2D.position.y);
     }
+
+    
+    public Vector3 GetPosition() {
+        return transform.position;
+    }
+
 }
