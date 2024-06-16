@@ -114,15 +114,18 @@ public class Player : MonoBehaviour
         //for the animations
         if(Mathf.RoundToInt(dir.x) == 0)
         {
+            GetComponent<AudioSource>().volume = 0;
             GetComponent<Animator>().SetBool("moving", false);
         }
         else if(Mathf.RoundToInt(dir.x) > 0)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<SpriteRenderer>().flipX = false;
             GetComponent<Animator>().SetBool("moving", true);
         }
         else 
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<SpriteRenderer>().flipX = true;
             GetComponent<Animator>().SetBool("moving", true);
         }
