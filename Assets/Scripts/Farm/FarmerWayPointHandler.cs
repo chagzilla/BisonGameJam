@@ -7,7 +7,7 @@ using UnityEngine;
  * */
 public class FarmerWayPointHandler : MonoBehaviour {
         
-    private const float speed = 25f;
+    [SerializeField]private  float speed = 25f;
 
     [SerializeField] private List<Vector3> waypointList;
     [SerializeField] private List<float> waitTimeList;
