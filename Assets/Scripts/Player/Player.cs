@@ -76,6 +76,34 @@ public class Player : MonoBehaviour
     private void TopDownMovement()
     {
         dir = playerInput.TopDown.Move.ReadValue<Vector2>();
+
+        //for top down animations, direction float: 1 = front 2 = back 3 = left 4 =right, walking for wlaking or idle animations
+
+        if (Mathf.RoundToInt(dir.y) == -1)
+        {
+            GetComponent<Animator>().SetFloat("direction", 1);
+            GetComponent<Animator>().SetBool("walking", true);
+        }
+        else if (Mathf.RoundToInt(dir.y) ==1)
+        {
+            GetComponent<Animator>().SetFloat("direction", 2);
+            GetComponent<Animator>().SetBool("walking", true);
+        }
+        else if (Mathf.RoundToInt(dir.x) == -1)
+        {
+            GetComponent<Animator>().SetFloat("direction", 3);
+            GetComponent<Animator>().SetBool("walking", true);
+        }
+        else if (Mathf.RoundToInt(dir.x) ==1)
+        {
+            GetComponent<Animator>().SetFloat("direction", 4);
+            GetComponent<Animator>().SetBool("walking", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("walking", false);
+        }
+
         rb2D.position = rb2D.position + (dir * Time.deltaTime * topDownSpeed); 
     }
 
