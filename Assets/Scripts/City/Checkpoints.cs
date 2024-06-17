@@ -9,6 +9,7 @@ public class Checkpoints : MonoBehaviour
     public Vector3[] checkpoints;
     public Transform bison;
     public int currentpoint = 0;
+    public bool useYValue = true;
 
     private void Awake()
     {
@@ -20,9 +21,19 @@ public class Checkpoints : MonoBehaviour
  
     void Update()
     {
-        if(bison.position.y >= checkpoints[currentpoint+1].y)
+        if (useYValue)
         {
-            currentpoint += 1;
+            if (bison.position.y >= checkpoints[currentpoint + 1].y)
+            {
+                currentpoint += 1;
+            }
+        }
+        else
+        {
+            if ((currentpoint + 1) < checkpoints.Length && bison.position.x >= checkpoints[currentpoint + 1].x)
+            {
+                currentpoint += 1;
+            }
         }
     }
 }
