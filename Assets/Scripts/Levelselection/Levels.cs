@@ -8,8 +8,20 @@ public class Levels : MonoBehaviour
     public GameObject Icon;
     private bool insidecollider;
     public string scenename;
+    public Transform bison;
+    public Sprite[] doneornot;
+    public string playerprefname;
     void Start()
     {
+        if (PlayerPrefs.GetInt(playerprefname) == 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = doneornot[0];
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = doneornot[1];
+        }
+
         Icon.SetActive(false);
     }
 
@@ -20,6 +32,7 @@ public class Levels : MonoBehaviour
         {
             if (scenename != "")
             {
+                PlayerPrefs.SetFloat("LSPosition", bison.position.x);
                 SceneManager.LoadScene(scenename);
             }
         }
