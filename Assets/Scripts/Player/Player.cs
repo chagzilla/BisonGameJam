@@ -7,20 +7,25 @@ using UnityEngine;
 public enum MovementType
 {
     LEVELSELECTOR,
-    TOPDOWN
+    TOPDOWN,
+    SLIDING
 }
 
 public class Player : MonoBehaviour
 {
     private PlayerInput playerInput;
     private Rigidbody2D rb2D;
-    private Vector2 dir;
+    public Vector2 dir;
     [SerializeField]
     private MovementType initialMovementType = MovementType.LEVELSELECTOR;
     [SerializeField]
     private float levelSpeed = 1f;
     [SerializeField]
-    private float topDownSpeed = 1f;
+    public float topDownSpeed = 1f;
+    [SerializeField]
+    private float topDownSlideForce = 1f;
+    [SerializeField]
+    private float topDownSlideLimit = 10f;
     private Action movement;
     private MovementType _movementType;
     public MovementType movementType {
@@ -39,6 +44,9 @@ public class Player : MonoBehaviour
                     break;
                 case MovementType.TOPDOWN:
                     movement = TopDownMovement;
+                    break;
+                case MovementType.SLIDING:
+                    movement = SlidingMovement;
                     break;
             }
         }
@@ -71,6 +79,54 @@ public class Player : MonoBehaviour
     void Update()
     {
         movement?.Invoke();
+    }
+
+    private void SlidingMovement()
+    {
+        dir = playerInput.TopDown.Move.ReadValue<Vector2>();
+        //for top down animations, direction float: 1 = front 2 = back 3 = left 4 =right, walking for wlaking or idle animations
+
+        if (Mathf.RoundToInt(dir.y) == -1)
+        {
+            GetComponent<Animator>().SetFloat("direction", 1);
+            GetComponent<Animator>().SetBool("walking", true);
+        }
+        else if (Mathf.RoundToInt(dir.y) == 1)
+        {
+            GetComponent<Animator>().SetFloat("direction", 2);
+            GetComponent<Animator>().SetBool("walking", true);
+        }
+        else if (Mathf.RoundToInt(dir.x) == -1)
+        {
+            GetComponent<Animator>().SetFloat("direction", 3);
+            GetComponent<Animator>().SetBool("walking", true);
+        }
+        else if (Mathf.RoundToInt(dir.x) == 1)
+        {
+            GetComponent<Animator>().SetFloat("direction", 4);
+            GetComponent<Animator>().SetBool("walking", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("walking", false);
+        }
+
+        if (dir != Vector2.zero)
+        {
+
+
+
+            rb2D.AddForce(dir * Time.deltaTime * topDownSlideForce);
+
+
+            if (rb2D.velocity.magnitude >= topDownSlideLimit)
+            {
+                rb2D.AddForce((rb2D.velocity.normalized * -1f * topDownSlideForce) * Time.deltaTime);
+            }
+        }
+
+        Debug.Log("Magnitude of velocity: " + rb2D.velocity.magnitude);
+        
     }
 
     private void TopDownMovement()
