@@ -8,8 +8,11 @@ public class Levels : MonoBehaviour
     public GameObject Icon;
     private bool insidecollider;
     public string scenename;
+    public Transform bison;
     void Start()
     {
+        
+
         Icon.SetActive(false);
     }
 
@@ -20,6 +23,7 @@ public class Levels : MonoBehaviour
         {
             if (scenename != "")
             {
+                PlayerPrefs.SetFloat("LSPosition", bison.position.x);
                 SceneManager.LoadScene(scenename);
             }
         }

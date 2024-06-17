@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
     public void Startgame()
     {
         //To start the game with no level beaten
-
+        PlayerPrefs.SetFloat("LSPosition", 0);
         StartCoroutine(LoadLevelSelection());
     }
     public void Continuegame()

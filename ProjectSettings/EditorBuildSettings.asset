@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Farm.unity
     guid: d93a6833b61b1ed479312d781574df20
+  - enabled: 1
+    path: Assets/Scenes/Level 2 - Forest.unity
+    guid: 0a13e6ea6f827654ca791c97df2bffe7
   m_configObjects: {}

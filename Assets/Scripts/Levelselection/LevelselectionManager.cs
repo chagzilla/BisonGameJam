@@ -9,10 +9,15 @@ public class LevelselectionManager : MonoBehaviour
     public GameObject transitionstart;
     public GameObject transitionend;
     public GameObject[] LevelsS;
+    public Transform bison;
     private bool left;
 
     private void Start()
     {
+        if(SceneManager.GetActiveScene().name == "Level Selection")
+        {
+            bison.position = new Vector3(PlayerPrefs.GetFloat("LSPosition"), 0, 0);
+        }
         GameObject t = Instantiate(transitionend);
         Destroy(t, 2.5f);
         pause.SetActive(false);
@@ -40,6 +45,7 @@ public class LevelselectionManager : MonoBehaviour
 
     public void returnmainmenu()
     {
+        PlayerPrefs.SetFloat("LSPosition", bison.position.x);
         left = false;
         foreach (GameObject t in LevelsS)
         {
@@ -55,5 +61,17 @@ public class LevelselectionManager : MonoBehaviour
         Destroy(t, 2.5f);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void Quitgame()
+    {
+        PlayerPrefs.SetFloat("LSPosition", bison.position.x);
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
+
+    public void BackLevelSelection()
+    {
+        SceneManager.LoadScene("Level Selection");
     }
 }
