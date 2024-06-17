@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum MovementType
 {
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float topDownSpeed = 1f;
     private Action movement;
+    //public InputActionReference follow;
     private MovementType _movementType;
     public MovementType movementType {
         get
@@ -61,10 +63,12 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         playerInput.Enable();
+        //follow.action.started += Follow;
     }
     private void OnDisable()
     {
         playerInput.Disable();
+        //follow.action.start -= Follow;
     }
 
     // Update is called once per frame
@@ -107,6 +111,8 @@ public class Player : MonoBehaviour
         rb2D.position = rb2D.position + (dir * Time.deltaTime * topDownSpeed); 
     }
 
+
+   
     private void LevelSelectMovement()
     {
         dir = playerInput.TopDown.Move.ReadValue<Vector2>();
@@ -138,4 +144,9 @@ public class Player : MonoBehaviour
         return transform.position;
     }
 
+
+   // private void Follow(InputAction.CallbackContext obj)
+    //{
+     //   Debug.Log("SPACE");
+    //}
 }
