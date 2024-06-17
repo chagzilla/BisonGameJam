@@ -11,18 +11,44 @@ public class LevelselectionManager : MonoBehaviour
     public GameObject[] LevelsS;
     public Transform bison;
     private bool left;
-
+    public GameObject wall;
+    public float[] wallpos;
     private void Start()
     {
         if(SceneManager.GetActiveScene().name == "Level Selection")
         {
             bison.position = new Vector3(PlayerPrefs.GetFloat("LSPosition"), 0, 0);
+
+            if (PlayerPrefs.GetInt("Farm") == 0)
+            {
+                wall.GetComponent<Transform>().position = new Vector3(wallpos[0], 0, 0);
+            }
+            else if (PlayerPrefs.GetInt("Forest") == 0)
+            {
+                wall.GetComponent<Transform>().position = new Vector3(wallpos[1], 0, 0);
+            }
+            else if (PlayerPrefs.GetInt("Desert") == 0)
+            {
+                wall.GetComponent<Transform>().position = new Vector3(wallpos[2], 0, 0);
+            }
+            else if (PlayerPrefs.GetInt("City") == 0)
+            {
+                wall.GetComponent<Transform>().position = new Vector3(wallpos[3], 0, 0);
+            }
+            else if (PlayerPrefs.GetInt("Tundra") == 0)
+            {
+                wall.GetComponent<Transform>().position = new Vector3(wallpos[4], 0, 0);
+            }
+            else { Destroy(wall); }
         }
         GameObject t = Instantiate(transitionend);
         Destroy(t, 2.5f);
         pause.SetActive(false);
         Time.timeScale = 1;
         left = true;
+
+
+
     }
     public void Update()
     {
