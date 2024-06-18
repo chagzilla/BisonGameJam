@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     public bool canJump = true;
 
     //public InputActionReference follow;
-    public InputActionReference follow;
+    //public InputActionReference follow;
     private MovementType _movementType;
     public MovementType movementType {
         get
@@ -86,23 +86,43 @@ public class Player : MonoBehaviour
 
         rb2D = GetComponent<Rigidbody2D>();
         movementType = initialMovementType;
+        heatTimer = heatTimerLimit;
     }
 
     private void OnEnable()
     {
         playerInput.Enable();
-        follow.action.started += Follow;
+        //follow.action.started += Follow;
     }
     private void OnDisable()
     {
         playerInput.Disable();
-        follow.action.started -= Follow;
+        //follow.action.started -= Follow;
     }
 
     // Update is called once per frame
     void Update()
     {
         movement?.Invoke();
+        if (slider != null) 
+        {
+            heatValue = Mathf.Max(heatTimer, 0f) / heatTimerLimit;
+            slider.value = heatValue;
+            if (!isWarming) 
+            {
+                heatTimer -= Time.deltaTime;
+            }
+            else
+            {
+                heatTimer = Mathf.Min(Time.deltaTime * heatingSpeed + heatTimer, heatTimerLimit);
+            }
+            heatGuage.color = Color.Lerp(barEndColor, barStartColor, heatValue);
+            if (heatValue <= 0f)
+            {
+                transform.position = (Checkpoints.Instance.checkpoints[0] + Vector3.back);
+                heatTimer = heatTimerLimit;
+            }
+        }
     }
 
     private void SlidingMovement()
@@ -230,5 +250,21 @@ public class Player : MonoBehaviour
     private void Follow(InputAction.CallbackContext obj)
     {
         Debug.Log("SPACE");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Fire")
+        {
+            isWarming = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Fire")
+        {
+            isWarming = false;
+        }
     }
 }
