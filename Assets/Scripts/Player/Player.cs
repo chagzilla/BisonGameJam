@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         movementType = initialMovementType;
         heatTimer = heatTimerLimit;
+        heatGuage.material.SetInteger("_Flash", 0);
     }
 
     private void OnEnable()
@@ -117,6 +118,16 @@ public class Player : MonoBehaviour
                 heatTimer = Mathf.Min(Time.deltaTime * heatingSpeed + heatTimer, heatTimerLimit);
             }
             heatGuage.color = Color.Lerp(barEndColor, barStartColor, heatValue);
+            if (heatValue <= 0.4f && !isWarming)
+            {
+                heatGuage.material.SetInteger("_Flash", 1);
+            }
+
+            if (heatValue > 0.4f && isWarming)
+            {
+                heatGuage.material.SetInteger("_Flash", 0);
+            }
+
             if (heatValue <= 0f)
             {
                 transform.position = (Checkpoints.Instance.checkpoints[0] + Vector3.back);
