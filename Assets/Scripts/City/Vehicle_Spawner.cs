@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Vehicle_Spawner : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Vehicle_Spawner : MonoBehaviour
     private bool insidecollider;
     public bool barthrower = false;
     public bool mofas = false;
+    public bool laser = false;
     void Start()
     {
         timer = delay;
@@ -29,9 +31,20 @@ public class Vehicle_Spawner : MonoBehaviour
             {
                 if(barthrower) 
                 { 
-                    vehicle_direction = (Checkpoints.Instance.bison.position - GetComponent<Transform>().position).normalized;
+                    vehicle_direction = (GameObject.FindWithTag("Player").GetComponent<Transform>().position - GetComponent<Transform>().position).normalized;
+                    if(SceneManager.GetActiveScene().name == "Desert")
+                    {
+                        vehicle_direction = (GameObject.FindWithTag("Player").GetComponent<Transform>().position + new Vector3(.4f,Random.Range(-100,101)/100,0) - GetComponent<Transform>().position ).normalized;
+                    }
                 }
-                if (!mofas)
+                if (laser)
+                {
+                    GameObject v = Instantiate(vehicles[Random.Range(0, vehicles.Length)], GetComponent<Transform>().position, Quaternion.identity);
+                    v.GetComponent<Vehicles>().speed = 0;
+                    v.GetComponent<Vehicles>().Movedirection = new Vector3(0,0,0);
+                    Destroy(v, 2);
+                }
+                else if (!mofas)
                 {
                     GameObject v = Instantiate(vehicles[Random.Range(0, vehicles.Length)], GetComponent<Transform>().position, Quaternion.identity);
                     v.GetComponent<Vehicles>().speed = vehicle_speed;
