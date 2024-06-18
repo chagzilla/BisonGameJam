@@ -80,7 +80,7 @@ public class FarmerWayPointHandler : MonoBehaviour {
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null) {
                         // END GAME
                         
-                        SceneManager.LoadScene("Forest Final");
+                        SceneManager.LoadScene("Farm");
                     }
                 }
             }
