@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Vehicles : MonoBehaviour
 {
@@ -26,8 +27,16 @@ public class Vehicles : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<Transform>().position = Checkpoints.Instance.checkpoints[Checkpoints.Instance.currentpoint];
-            Destroy(gameObject);
+            if (SceneManager.GetActiveScene().name == "Desert")
+            {
+                other.gameObject.GetComponent<Transform>().position = new Vector3(0, 1.5f, 0);
+                GameObject.FindWithTag("UFO").GetComponent<Transform>().position = new Vector3(0, 1.5f, 0);
+            }
+            else
+            {
+                other.gameObject.GetComponent<Transform>().position = Checkpoints.Instance.checkpoints[Checkpoints.Instance.currentpoint];
+                Destroy(gameObject);
+            }
         }
     }
 }
