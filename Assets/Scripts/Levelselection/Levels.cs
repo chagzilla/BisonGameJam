@@ -23,6 +23,7 @@ public class Levels : MonoBehaviour
         }
 
         Icon.SetActive(false);
+        insidecollider = false;
     }
 
     // Update is called once per frame
@@ -40,15 +41,21 @@ public class Levels : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        insidecollider = true;
-        Icon.SetActive(true);
+        if (collision.CompareTag("Player"))
+        {
+            insidecollider = true;
+            Icon.SetActive(true);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        insidecollider = false;
-        if (Icon != null)
+        if (collision.CompareTag("Player"))
         {
-            Icon.SetActive(false);
+            insidecollider = false;
+            if (Icon != null)
+            {
+                Icon.SetActive(false);
+            }
         }
     }
 
