@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public enum MovementType
@@ -28,6 +29,22 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float topDownSlideLimit = 10f;
     private Action movement;
+    [SerializeField]
+    private Slider slider;
+    [SerializeField]
+    private Image heatGuage;
+    [SerializeField]
+    private float heatTimerLimit = 20f;
+    private float heatTimer = 20f;
+    private float heatValue;
+    [SerializeField]
+    private float heatingSpeed = 2f;
+    bool isWarming = false;
+    [SerializeField]
+    private Color barStartColor;
+    [SerializeField]
+    private Color barEndColor;
+
     //public InputActionReference follow;
     private MovementType _movementType;
     public MovementType movementType {
@@ -66,6 +83,10 @@ public class Player : MonoBehaviour
 
         rb2D = GetComponent<Rigidbody2D>();
         movementType = initialMovementType;
+        heatValue = 1f;
+        slider.value = heatValue;
+        heatTimer = heatTimerLimit;
+        Debug.Log(heatGuage);
     }
 
     private void OnEnable()
@@ -83,6 +104,26 @@ public class Player : MonoBehaviour
     void Update()
     {
         movement?.Invoke();
+        if (slider != null)
+        {
+            heatValue = Mathf.Max(heatTimer, 0f) / heatTimerLimit;
+            slider.value = heatValue;
+            if (!isWarming)
+            {
+                heatTimer -= Time.deltaTime;
+            }
+            else
+            {
+                heatTimer = Mathf.Min(Time.deltaTime * heatingSpeed + heatTimer, heatTimerLimit);
+            }
+            heatGuage.color = Color.Lerp(barEndColor, barStartColor, heatValue);
+            if (heatValue <= 0f)
+            {
+                transform.position = (Checkpoints.Instance.checkpoints[0] + Vector3.back);
+                heatTimer = heatTimerLimit;
+            }
+        }
+        
     }
 
     private void SlidingMovement()
@@ -117,9 +158,6 @@ public class Player : MonoBehaviour
 
         if (dir != Vector2.zero)
         {
-
-
-
             rb2D.AddForce(dir * Time.deltaTime * topDownSlideForce);
 
 
@@ -128,9 +166,6 @@ public class Player : MonoBehaviour
                 rb2D.AddForce((rb2D.velocity.normalized * -1f * topDownSlideForce) * Time.deltaTime);
             }
         }
-
-        Debug.Log("Magnitude of velocity: " + rb2D.velocity.magnitude);
-        
     }
 
     private void TopDownMovement()
@@ -201,8 +236,23 @@ public class Player : MonoBehaviour
     }
 
 
-   // private void Follow(InputAction.CallbackContext obj)
+    // private void Follow(InputAction.CallbackContext obj)
     //{
-     //   Debug.Log("SPACE");
+    //   Debug.Log("SPACE");
     //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Fire")
+        {
+            isWarming = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Fire")
+        {
+            isWarming = false;
+        }
+    }
 }
