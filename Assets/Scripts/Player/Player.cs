@@ -83,10 +83,13 @@ public class Player : MonoBehaviour
 
         rb2D = GetComponent<Rigidbody2D>();
         movementType = initialMovementType;
-        heatValue = 1f;
-        slider.value = heatValue;
-        heatTimer = heatTimerLimit;
-        Debug.Log(heatGuage);
+        if (slider != null)
+        {
+            heatValue = 1f;
+            slider.value = heatValue;
+            heatTimer = heatTimerLimit;
+            Debug.Log(heatGuage);
+        }
     }
 
     private void OnEnable()

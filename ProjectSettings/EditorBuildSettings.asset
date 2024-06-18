@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2 - Forest.unity
     guid: 0a13e6ea6f827654ca791c97df2bffe7
+  - enabled: 1
+    path: Assets/Scenes/Taiga.unity
+    guid: ecd17594eb58b400ca52d46929c7e421
   m_configObjects: {}
