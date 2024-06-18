@@ -66,13 +66,13 @@ public class WolfWaypoints : MonoBehaviour
                 if (collision.gameObject.CompareTag("Player"))
                 {
                     
-                    SceneManager.LoadScene("Level 2 - Forest");
+                    SceneManager.LoadScene("Forest Final");
 
                 }
                 else if (collision.gameObject.CompareTag("Companion"))
                 {
                     
-                    SceneManager.LoadScene("Level 2 - Forest");
+                    SceneManager.LoadScene("Forest Final");
                 }
             }
     

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
  * Character moves between waypoints
@@ -78,7 +79,8 @@ public class FarmerWayPointHandler : MonoBehaviour {
                     // Hit something
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null) {
                         // END GAME
-                        Debug.Log("PLAYER FOUND END GAME");
+                        
+                        SceneManager.LoadScene("Forest Final");
                     }
                 }
             }
