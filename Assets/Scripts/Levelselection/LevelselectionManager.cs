@@ -91,7 +91,10 @@ public class LevelselectionManager : MonoBehaviour
 
     public void Quitgame()
     {
-        PlayerPrefs.SetFloat("LSPosition", bison.position.x);
+        if (SceneManager.GetActiveScene().name == "Level Selection")
+        {
+            PlayerPrefs.SetFloat("LSPosition", bison.position.x);
+        }
         Application.Quit();
         Debug.Log("Quit Game");
     }

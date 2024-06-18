@@ -136,26 +136,31 @@ public class Player : MonoBehaviour
 
         if (Mathf.RoundToInt(dir.y) == -1)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<Animator>().SetFloat("direction", 1);
             GetComponent<Animator>().SetBool("walking", true);
         }
         else if (Mathf.RoundToInt(dir.y) == 1)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<Animator>().SetFloat("direction", 2);
             GetComponent<Animator>().SetBool("walking", true);
         }
         else if (Mathf.RoundToInt(dir.x) == -1)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<Animator>().SetFloat("direction", 3);
             GetComponent<Animator>().SetBool("walking", true);
         }
         else if (Mathf.RoundToInt(dir.x) == 1)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<Animator>().SetFloat("direction", 4);
             GetComponent<Animator>().SetBool("walking", true);
         }
         else
         {
+            GetComponent<AudioSource>().volume = 0;
             GetComponent<Animator>().SetBool("walking", false);
         }
 
@@ -179,26 +184,31 @@ public class Player : MonoBehaviour
 
         if (Mathf.RoundToInt(dir.y) == -1)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<Animator>().SetFloat("direction", 1);
             GetComponent<Animator>().SetBool("walking", true);
         }
         else if (Mathf.RoundToInt(dir.y) ==1)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<Animator>().SetFloat("direction", 2);
             GetComponent<Animator>().SetBool("walking", true);
         }
         else if (Mathf.RoundToInt(dir.x) == -1)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<Animator>().SetFloat("direction", 3);
             GetComponent<Animator>().SetBool("walking", true);
         }
         else if (Mathf.RoundToInt(dir.x) ==1)
         {
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<Animator>().SetFloat("direction", 4);
             GetComponent<Animator>().SetBool("walking", true);
         }
         else
         {
+            GetComponent<AudioSource>().volume = 0;
             GetComponent<Animator>().SetBool("walking", false);
         }
 
