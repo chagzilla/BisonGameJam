@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
         if (slider != null) 
         {
             heatValue = Mathf.Max(heatTimer, 0f) / heatTimerLimit;
+            heatGuage.material.SetFloat("_HeatValue", heatValue);
             slider.value = heatValue;
             if (!isWarming) 
             {

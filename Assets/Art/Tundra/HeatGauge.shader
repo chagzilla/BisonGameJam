@@ -4,6 +4,7 @@ Shader "Custom/HeatGauge"
     {
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
+        _HeatValue ("_HeatValue", Float) = 0
         _GradientColor ("GradientTint", Color) = (1,1,1,1)
         _Flash ("CanFlash", Integer) = 1
         _StencilComp ("Stencil Comparison", Float) = 8
@@ -76,6 +77,7 @@ Shader "Custom/HeatGauge"
             };
 
             sampler2D _MainTex;
+            float _HeatValue;
             fixed4 _Color;
             fixed4 _GradientColor;
             fixed4 _TextureSampleAdd;
@@ -103,7 +105,7 @@ Shader "Custom/HeatGauge"
                 half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
                 if (_Flash == 1)
                 {
-                    color = lerp(color, _Color / 2, (sin(_Time.y * 40) / 2) + 0.5);
+                    color = lerp(color, _Color / 2, (sin(_Time.y * lerp(0, 20, _HeatValue/0.4)) / 2) + 0.5);
                 }
                 #ifdef UNITY_UI_CLIP_RECT
                 color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
