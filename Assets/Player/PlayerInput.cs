@@ -158,7 +158,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""New control scheme"",
                     ""action"": ""Follow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

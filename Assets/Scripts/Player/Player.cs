@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float topDownSlideLimit = 10f;
     private Action movement;
-    //public InputActionReference follow;
+    public InputActionReference follow;
     private MovementType _movementType;
     public MovementType movementType {
         get
@@ -71,12 +71,12 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         playerInput.Enable();
-        //follow.action.started += Follow;
+        follow.action.started += Follow;
     }
     private void OnDisable()
     {
         playerInput.Disable();
-        //follow.action.start -= Follow;
+        follow.action.started -= Follow;
     }
 
     // Update is called once per frame
@@ -201,8 +201,8 @@ public class Player : MonoBehaviour
     }
 
 
-   // private void Follow(InputAction.CallbackContext obj)
-    //{
-     //   Debug.Log("SPACE");
-    //}
+    private void Follow(InputAction.CallbackContext obj)
+    {
+        Debug.Log("SPACE");
+    }
 }
