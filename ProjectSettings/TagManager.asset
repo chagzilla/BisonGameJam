@@ -5,9 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Companion
+<<<<<<< HEAD
   - Fire
   - UFO
   - Ground
+=======
+  - Waypoint
+>>>>>>> 40221745b735c9cae43dbd4d908b381fe298bb65
   layers:
   - Default
   - TransparentFX

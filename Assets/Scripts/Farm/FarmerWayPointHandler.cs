@@ -79,8 +79,6 @@ public class FarmerWayPointHandler : MonoBehaviour {
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null) {
                         // END GAME
                         Debug.Log("PLAYER FOUND END GAME");
-                    } else {
-                        // Hit something else
                     }
                 }
             }
