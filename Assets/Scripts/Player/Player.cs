@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     private Color barStartColor;
     [SerializeField]
     private Color barEndColor;
+    public bool isTouchingGround = true;
+    public bool canJump = true;
 
     //public InputActionReference follow;
     private MovementType _movementType;
@@ -241,6 +243,12 @@ public class Player : MonoBehaviour
         }
 
         rb2D.position = new Vector2(rb2D.position.x + (dir.x * Time.deltaTime * levelSpeed), rb2D.position.y);
+
+        if (canJump && isTouchingGround && playerInput.LevelSelector.Jump.IsPressed())
+        {
+            rb2D.velocity = Vector2.up * 5;
+            canJump = false;
+        }
     }
 
     

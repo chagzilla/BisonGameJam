@@ -35,6 +35,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""5a8228fd-601d-4f11-861b-5da846ce0fe4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -70,6 +79,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf9548d3-940f-4510-b5dc-23c9b01dc1aa"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -183,6 +203,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // LevelSelector
         m_LevelSelector = asset.FindActionMap("LevelSelector", throwIfNotFound: true);
         m_LevelSelector_Move = m_LevelSelector.FindAction("Move", throwIfNotFound: true);
+        m_LevelSelector_Jump = m_LevelSelector.FindAction("Jump", throwIfNotFound: true);
         // TopDown
         m_TopDown = asset.FindActionMap("TopDown", throwIfNotFound: true);
         m_TopDown_Move = m_TopDown.FindAction("Move", throwIfNotFound: true);
@@ -249,11 +270,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_LevelSelector;
     private List<ILevelSelectorActions> m_LevelSelectorActionsCallbackInterfaces = new List<ILevelSelectorActions>();
     private readonly InputAction m_LevelSelector_Move;
+    private readonly InputAction m_LevelSelector_Jump;
     public struct LevelSelectorActions
     {
         private @PlayerInput m_Wrapper;
         public LevelSelectorActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_LevelSelector_Move;
+        public InputAction @Jump => m_Wrapper.m_LevelSelector_Jump;
         public InputActionMap Get() { return m_Wrapper.m_LevelSelector; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -266,6 +289,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(ILevelSelectorActions instance)
@@ -273,6 +299,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(ILevelSelectorActions instance)
@@ -356,6 +385,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface ILevelSelectorActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
     public interface ITopDownActions
     {

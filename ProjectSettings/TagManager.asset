@@ -7,6 +7,7 @@ TagManager:
   - Companion
   - Fire
   - UFO
+  - Ground
   layers:
   - Default
   - TransparentFX
