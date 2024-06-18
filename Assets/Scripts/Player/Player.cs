@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public enum MovementType
@@ -28,7 +29,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float topDownSlideLimit = 10f;
     private Action movement;
-<<<<<<< HEAD
     [SerializeField]
     private Slider slider;
     [SerializeField]
@@ -48,9 +48,7 @@ public class Player : MonoBehaviour
     public bool canJump = true;
 
     //public InputActionReference follow;
-=======
     public InputActionReference follow;
->>>>>>> 40221745b735c9cae43dbd4d908b381fe298bb65
     private MovementType _movementType;
     public MovementType movementType {
         get
