@@ -29,8 +29,8 @@ public class Vehicles : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Desert")
             {
-                other.gameObject.GetComponent<Transform>().position = new Vector3(0, 1.5f, 0);
-                GameObject.FindWithTag("UFO").GetComponent<Transform>().position = new Vector3(0, 1.5f, 0);
+                other.gameObject.GetComponent<Transform>().position = Checkpoints.Instance.checkpoints[Checkpoints.Instance.currentpoint];
+                GameObject.FindWithTag("UFO").GetComponent<Transform>().position = Checkpoints.Instance.checkpoints[Checkpoints.Instance.currentpoint];
             }
             else
             {

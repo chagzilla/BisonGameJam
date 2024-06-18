@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3970636170043456620}
   - component: {fileID: 2198877131739523212}
   - component: {fileID: 409223045781087348}
+  - component: {fileID: 6817694173915590206}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -62,7 +63,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -2.6881876, y: -1.2865164}
@@ -92,13 +93,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicles:
   - {fileID: 3501214055219167683, guid: 22bc793e33d7fe74e98f18e146c279f8, type: 3}
-  interval: 3
+  interval: 2.25
   delay: 0
   vehicle_direction: {x: 0, y: 0, z: 0}
-  vehicle_speed: 3
+  vehicle_speed: 3.5
   OnlyWhenPlayerNear: 1
   barthrower: 1
   mofas: 0
+  laser: 0
+--- !u!50 &6817694173915590206
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195987700084247486}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8316143309686700088
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +205,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1022949885, guid: 7f3ea897cfcf391439c4d21a4df539fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
