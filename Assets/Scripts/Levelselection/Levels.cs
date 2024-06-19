@@ -29,7 +29,7 @@ public class Levels : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))&&insidecollider)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))&&insidecollider && Time.timeSinceLevelLoad >= 0.5f)
         {
             if (scenename != "")
             {
