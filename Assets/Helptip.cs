@@ -12,8 +12,13 @@ public class Helptip : MonoBehaviour
         button.gameObject.SetActive(true);
     }
     private void OnTriggerExit2D(Collider2D c){
-        if(c.tag == "Player")
-        button.gameObject.SetActive(false);
+        if (c.tag == "Player")
+        {
+            if (button != null)
+            {
+                button.gameObject.SetActive(false);
+            }
+        }
     }
 }
  
