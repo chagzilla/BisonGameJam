@@ -46,6 +46,8 @@ public class Player : MonoBehaviour
     private Color barEndColor;
     public bool isTouchingGround = true;
     public bool canJump = true;
+    private float timer = 0;
+    private float timerSpeed = 5f;
 
     //public InputActionReference follow;
     //public InputActionReference follow;
@@ -87,7 +89,7 @@ public class Player : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         movementType = initialMovementType;
         heatTimer = heatTimerLimit;
-        heatGuage.material.SetInteger("_Flash", 0);
+        timer = 0f;
     }
 
     private void OnEnable()
@@ -104,11 +106,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime * timerSpeed;
         movement?.Invoke();
         if (slider != null) 
         {
             heatValue = Mathf.Max(heatTimer, 0f) / heatTimerLimit;
-            heatGuage.material.SetFloat("_HeatValue", heatValue);
             slider.value = heatValue;
             if (!isWarming) 
             {
@@ -119,16 +121,16 @@ public class Player : MonoBehaviour
                 heatTimer = Mathf.Min(Time.deltaTime * heatingSpeed + heatTimer, heatTimerLimit);
             }
             heatGuage.color = Color.Lerp(barEndColor, barStartColor, heatValue);
-            if (heatValue <= 0.4f && !isWarming)
+            if (heatValue <= 0.5f)
             {
-                heatGuage.material.SetInteger("_Flash", 1);
+                timerSpeed = Mathf.Lerp(5f, 30f, (0.5f - heatValue) / 0.5f);
+            }
+            else
+            {
+                timerSpeed = Mathf.Lerp(0f, 5f, (1f - heatValue) / 0.5f);
             }
 
-            if (heatValue > 0.4f && isWarming)
-            {
-                heatGuage.material.SetInteger("_Flash", 0);
-            }
-
+            heatGuage.color = Color.Lerp(heatGuage.color, Color.white, (Mathf.Sin(timer) / 2f + 0.5f));
             if (heatValue <= 0f)
             {
                 transform.position = (Checkpoints.Instance.checkpoints[0] + Vector3.back);
