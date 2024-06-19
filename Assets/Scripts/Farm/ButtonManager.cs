@@ -8,6 +8,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject Door1;
 
     [SerializeField] private GameObject Door2;
+    [SerializeField] private GameObject HelpTip;
 
     public bool Button1 =false;
     public bool Button2 =false;
@@ -20,6 +21,7 @@ public class ButtonManager : MonoBehaviour
         {
             Door1.SetActive(false);
             Door2.SetActive(false);
+            HelpTip.SetActive(false);
         }
     }
 

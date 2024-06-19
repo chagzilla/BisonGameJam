@@ -588,6 +588,9 @@ MonoBehaviour:
   transitionstart: {fileID: 6654012400158991352, guid: 8f1d257826b166a4c927fa5c32f7ab07, type: 3}
   transitionend: {fileID: 1124752502276728293, guid: 346e8ec058072714794f4c80abc8c652, type: 3}
   LevelsS: []
+  bison: {fileID: 0}
+  wall: {fileID: 0}
+  wallpos: []
 --- !u!1 &8189521242692258438
 GameObject:
   m_ObjectHideFlags: 0
