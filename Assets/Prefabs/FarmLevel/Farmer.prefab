@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6002985444806553779}
   - component: {fileID: 4498011093928989316}
   - component: {fileID: 943013326351836646}
+  - component: {fileID: 2137191243864321098}
   m_Layer: 8
   m_Name: Farmer
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 33576904, guid: 66dd6c68716bedb42bea3d1a4e950ae3, type: 3}
   m_Color: {r: 0.8490566, g: 0.4437522, b: 0.4437522, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43f0df9477d57f46b14ac04aba82da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 25
   waypointList:
   - {x: -3.9575615, y: -3.2279847, z: 0}
   - {x: -4.07, y: 2.03, z: 0}
@@ -110,3 +112,24 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3409640296748641429, guid: 4c0282d13be863d4ca457e55404aed17, type: 3}
   fov: 180
   viewDistance: 5
+--- !u!95 &2137191243864321098
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4147327229568435447}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2599ca5c64be614a867bd68cc8da514, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

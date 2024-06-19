@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level Selection.unity
     guid: 60113a6f3fbaeaf42899580f027d70f9
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Level4 - City.unity
     guid: 20daebc2cae0d2d44a37537a88b70857
@@ -21,12 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Farm.unity
     guid: d93a6833b61b1ed479312d781574df20
   - enabled: 1
-    path: Assets/Scenes/Level 2 - Forest.unity
-    guid: 0a13e6ea6f827654ca791c97df2bffe7
-  - enabled: 1
     path: Assets/Scenes/Taiga.unity
     guid: ecd17594eb58b400ca52d46929c7e421
   - enabled: 1
     path: Assets/Scenes/Desert.unity
     guid: 240ea78b6555ee542a0ee7dd3beac1e2
+  - enabled: 1
+    path: Assets/Scenes/Forest Final.unity
+    guid: 6b579cbd0af549540a57976814efbac2
   m_configObjects: {}

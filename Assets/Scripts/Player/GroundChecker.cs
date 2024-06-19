@@ -16,7 +16,7 @@ public class GroundChecker : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Ground")
+        if (collision.tag == "Ground" && GetComponentInParent<Player>() != null)
         {
             GetComponentInParent<Player>().isTouchingGround = false;
         }

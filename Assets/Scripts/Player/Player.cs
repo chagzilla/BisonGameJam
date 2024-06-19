@@ -5,6 +5,7 @@ using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public enum MovementType
 {
@@ -86,8 +87,11 @@ public class Player : MonoBehaviour
 
         rb2D = GetComponent<Rigidbody2D>();
         movementType = initialMovementType;
-        heatTimer = heatTimerLimit;
-        heatGuage.material.SetInteger("_Flash", 0);
+        if (SceneManager.GetActiveScene().name == "Taiga")
+        {
+            heatTimer = heatTimerLimit;
+            heatGuage.material.SetInteger("_Flash", 0);
+        }
     }
 
     private void OnEnable()
