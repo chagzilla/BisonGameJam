@@ -19,6 +19,11 @@ public class FarmerWayPointHandler : MonoBehaviour {
     [SerializeField] private float walkFrameRate ;
     [SerializeField] private Vector3 aimDirection;
 
+    [SerializeField] private Animator animator ;
+
+    public float animX;
+    public float animY;
+
     [SerializeField] private Player player;
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov ;
@@ -91,6 +96,7 @@ public class FarmerWayPointHandler : MonoBehaviour {
         switch (state) {
         case State.Waiting:
             waitTimer -= Time.deltaTime;
+            animator.SetBool("moving", false);
            
             if (waitTimer <= 0f) {
                 state = State.Moving;
@@ -101,6 +107,22 @@ public class FarmerWayPointHandler : MonoBehaviour {
 
             Vector3 waypointDir = (waypoint - transform.position).normalized;
             lastMoveDir = waypointDir;
+
+            animX= waypointDir.x;
+            animY= waypointDir.y;
+            Debug.Log("X " + animX + "      Y " + animY);
+           // if(animX > 0.1f || animX < 0.1f)
+          //  {  
+                animator.SetBool("moving", true);
+                    animator.SetFloat("directionX", animX);
+          //  }
+           // else if(animY > 0.1f||animY <0.1f)
+           // {
+              //  animator.SetBool("moving", true);
+                animator.SetFloat("directionY", animY);
+            
+
+
 
             float distanceBefore = Vector3.Distance(transform.position, waypoint);
            

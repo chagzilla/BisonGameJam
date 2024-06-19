@@ -9727,6 +9727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farmer (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4147327229568435447, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4498011093928989316, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
       propertyPath: m_SortingOrder
       value: 100
@@ -9855,6 +9859,10 @@ PrefabInstance:
     - target: {fileID: 4147327229568435447, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
       propertyPath: m_Name
       value: Farmer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147327229568435447, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4498011093928989316, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
       propertyPath: m_SortingOrder
@@ -10424,6 +10432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Help Tip (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 560160342817134492, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10434,27 +10446,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
-      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
-      propertyPath: m_AnchorMin.y
+      propertyPath: m_AnchorMin.x
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -60
+      value: 315.625
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 62.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10486,11 +10510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -87.25
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200
+      value: 127.5
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10507,6 +10531,14 @@ PrefabInstance:
     - target: {fileID: 1372143787478586099, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_text
       value: You need to collect 3 keys around the farm to open the doors!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372143787478586099, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372143787478586099, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17712,6 +17744,10 @@ PrefabInstance:
     - target: {fileID: 4147327229568435447, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
       propertyPath: m_Name
       value: Farmer (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147327229568435447, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498011093928989316, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
       propertyPath: m_SortingOrder
@@ -35298,27 +35334,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
-      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
-      propertyPath: m_AnchorMin.y
+      propertyPath: m_AnchorMin.x
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -60
+      value: 315.625
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 62.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35350,11 +35398,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -87.25
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200
+      value: 127.5
       objectReference: {fileID: 0}
     - target: {fileID: 580995561919964675, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35372,6 +35420,14 @@ PrefabInstance:
       propertyPath: m_text
       value: You need to escape. Try not to be seen by the farmers. Wait till their
         backs are turned
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372143787478586099, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372143787478586099, guid: d9b94de01ac8d8d4087be06507bf2f9f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35429,6 +35485,10 @@ PrefabInstance:
     - target: {fileID: 4147327229568435447, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
       propertyPath: m_Name
       value: Farmer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147327229568435447, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498011093928989316, guid: 470bc2191f5f1f64aba6bc587c7a615e, type: 3}
       propertyPath: m_SortingOrder

@@ -108,6 +108,9 @@ MonoBehaviour:
   idleFrameRate: 1
   walkFrameRate: 1
   aimDirection: {x: 0, y: 0, z: 0}
+  animator: {fileID: 2137191243864321098}
+  animX: 0
+  animY: 0
   player: {fileID: 0}
   pfFieldOfView: {fileID: 3409640296748641429, guid: 4c0282d13be863d4ca457e55404aed17, type: 3}
   fov: 180

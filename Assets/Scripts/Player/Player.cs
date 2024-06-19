@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.ReorderableList;
+//using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     }    
     // Start is called before the first frame update
 
-    void Start()
+    void Awake()
     {
         if (playerInput == null)
         {
