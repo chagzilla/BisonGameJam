@@ -14,9 +14,15 @@ public class WolfWaypoints : MonoBehaviour
     [SerializeField] private GameObject companion;
     
     [SerializeField] private float range;
+    [SerializeField] private Animator animator;
     private float waypointIndex = 1;
 
     private float walking = 0;
+
+    
+    private float Direction;
+    private Vector3 currentLocation;
+    private Vector3 lastLocation = Vector3.zero;
 
 
     private void Start(){
@@ -24,9 +30,15 @@ public class WolfWaypoints : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        
+        currentLocation = transform.position;
     }
 
     private void Update(){
+        lastLocation=currentLocation;
+        currentLocation = transform.position;
+        Direction = (lastLocation.x- currentLocation.x);
+        animator.SetFloat("Direction", Direction);
 
         if(Vector3.Distance(transform.position,player.transform.position) < range || Vector3.Distance(transform.position,companion.transform.position)  < range )
         {

@@ -13,7 +13,13 @@ public class Companion : MonoBehaviour
     [SerializeField] private float speed;
     
     [SerializeField] private float range;
+    
+    [SerializeField] private Animator animator;
     private bool isFollowing = true;
+    
+    private float Direction;
+    private Vector3 currentLocation;
+    private Vector3 lastLocation = Vector3.zero;
 
     private void OnEnable()
     {
@@ -32,6 +38,8 @@ public class Companion : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = 0;
+        
+        currentLocation = transform.position;
     }
     // Update is called once per frame
     
@@ -43,6 +51,14 @@ public class Companion : MonoBehaviour
     }
 private void Update(){
 
+
+        
+        lastLocation=currentLocation;
+        currentLocation = transform.position;
+        Direction = (lastLocation.x- currentLocation.x);
+        Debug.Log(Direction);
+        
+        animator.SetFloat("Direction", Direction);
         if (Input.GetKeyDown(KeyCode.F))
         {
             

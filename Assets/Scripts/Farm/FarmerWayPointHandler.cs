@@ -60,7 +60,6 @@ public class FarmerWayPointHandler : MonoBehaviour {
         }
 
         if (fieldOfView != null) {
-            Debug.Log("HELP");
             fieldOfView.SetOrigin(transform.position);
             fieldOfView.SetAimDirection(GetAimDir());
         }

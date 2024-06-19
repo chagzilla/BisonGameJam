@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     }    
     // Start is called before the first frame update
 
-    void Awake()
+    void Start()
     {
         if (playerInput == null)
         {
@@ -278,10 +278,10 @@ public class Player : MonoBehaviour
     }
 
 
-    private void Follow(InputAction.CallbackContext obj)
-    {
-        Debug.Log("SPACE");
-    }
+   // private void Follow(InputAction.CallbackContext obj)
+   // {
+     //   Debug.Log("SPACE");
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
